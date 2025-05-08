@@ -4,10 +4,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
 from dicom_processor import process_dicom
 
-dicomUploader = FastAPI()
+dicomCalculator = FastAPI()
 
 #ignore CORS
-dicomUploader.add_middleware(
+dicomCalculator.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
     allow_credentials=True,
@@ -15,7 +15,7 @@ dicomUploader.add_middleware(
     allow_headers=["*"],
 )
     
-@dicomUploader.post("/upload")
+@dicomCalculator.post("/upload")
 async def upload_dicom(dicom_file: UploadFile = File(...)):
     try:
         # TODO add proper validation

@@ -4,4 +4,4 @@ WORKDIR /app
 COPY . .
 RUN pip install numpy fastapi uvicorn pydicom python-multipart
 
-CMD ["uvicorn", "main:dicomUploader", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["uvicorn", "main:dicomCalculator", "--host", "0.0.0.0", "--port", "5000"]
