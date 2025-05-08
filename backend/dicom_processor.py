@@ -26,13 +26,9 @@ def process_dicom(file, threshold=THRESHOLD):
 
     return {"extracted_pixel_data": pixel_result, "pixels_above_threshold": num_pixels_above_threshold, "voxel_volume": voxel_volume, "volume": round(volume, 3)}
 
+# for debugging
 if __name__ == "__main__":
     from pathlib import Path
     test_file = Path("./1-101.dcm")
-
-    if not test_file.exists():
-        raise FileNotFoundError(f"Test DICOM file not found at {test_file}")
-
-    # Call the function and print result
     volume = process_dicom(test_file)
     print(f"Calculated volume: {volume:.3f} mm³")

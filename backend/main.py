@@ -22,7 +22,7 @@ async def upload_dicom(dicom_file: UploadFile = File(...)):
         if not dicom_file.filename.lower().endswith('.dcm'):
             raise ValueError("Invalid file format. Please upload a DICOM file.")
         
-        # Read the uploaded file into memory
+        # execute the logic
         file_content = await dicom_file.read()
         dicom_buffer = BytesIO(file_content)
         return process_dicom(dicom_buffer)

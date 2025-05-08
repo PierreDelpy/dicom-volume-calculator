@@ -40,6 +40,4 @@ const dicomUploader = Vue.createApp({
     }
   }
 });
-
-// Mount the app to the HTML element with id="app"
 dicomUploader.mount("#dicomUploader");
