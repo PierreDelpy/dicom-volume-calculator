@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DICOM Volume Calculator</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id="dicomUploader">
+    <h1>DICOM Volume Calculator</h1>
+    <!-- Upload UI element -->
+    <input type="file" @change="dicomFileUpload">
+    <!-- Display values after upload -->
+    <p v-if="pixelsAboveThreshold !== null">1.B:) Pixels above threshold: {{ pixelsAboveThreshold }}</p>
+<!--    <p v-if="extractedPixelData !== null">2.C:) Extraction of pixel data: {{ extractedPixelData }}</p>-->
+    <p v-if="calculatedVoxelVolume !== null">2.F:) calculatedVoxelVolume mm3: {{ calculatedVoxelVolume }} mm³</p>
+    <p v-if="calculatedVolume !== null">2.F:) Volume of the thresholded pixels in mm3: {{ calculatedVolume }} mm³</p>
+    <p v-else-if="uploadErrorMessage">{{ uploadErrorMessage }}</p>
+  </div>
+
+  <script src="dicomUploader.js"></script>
+</body>
+</html>
